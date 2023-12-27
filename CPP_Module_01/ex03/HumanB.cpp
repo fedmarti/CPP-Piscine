@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 00:52:45 by fedmarti          #+#    #+#             */
-/*   Updated: 2023/12/24 01:33:01 by fedmarti         ###   ########.fr       */
+/*   Updated: 2023/12/27 23:23:59 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	HumanB::attack( void ) const
 	std::cout << this->_name;
 	if (!this->_weapon)
 	{
-		std::cout << "bitch slapped the opponent!\n";
+		std::cout << " bitch slapped the opponent!\n";
 		return ;
 	}
 	std::cout << " attacks with their " << this->_weapon->getType() << std::endl;
