@@ -3,23 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 23:31:42 by fedmarti          #+#    #+#             */
-/*   Updated: 2023/12/20 01:21:07 by fedmarti         ###   ########.fr       */
+/*   Updated: 2023/12/23 20:05:29 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
-#include "contact.hpp"
-//#include <phonebook.h>
+#include "Contact.hpp"
+#include "Phonebook.hpp"
 
 int main()
 {
-	Contact contact;
-
-	if (!contact.is_valid())
-		std::cout<<"in";
-	std::cout<<"vaild contact\n";
+	Phonebook 	pb("Awesome");
+	std::string	prompt;
+	do
+	{
+		std::cout << "SEARCH, ADD OR EXIT?\n";
+		std::getline(std::cin, prompt);
+		if (prompt == "ADD")
+			pb.add();
+		else if (prompt == "SEARCH")
+			pb.search();
+		else if (prompt == "EXIT" || std::cin.fail())
+			break ;
+		prompt = "";
+	} while (1);
 }

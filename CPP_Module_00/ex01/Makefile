@@ -1,19 +1,23 @@
 NAME=SuperCoolPB
 
-C=c++
+CC=c++
 
-FLAGS=-Wall -Wextra -Werror -std=c++98
+CFLAGS=-Wall -Wextra -Werror -std=c++98 -g
 
-SRC= main.cpp
+SRC= main.cpp Phonebook.cpp Contact.cpp
 
-OBJS= $($SRC:%.c=%.o)
+OBJS= $(SRC:%.cpp=%.o)
 
 all: $(NAME)
 
+%.o:%.cpp
+	$(CC) $(CFLAGS) $^ -c
+
 $(NAME): $(OBJS)
-	$(C) $(FLAGS) $^ -o $(NAME)
+	$(CC) $(CFLAGS) $^ -o $(NAME)
 
 clean:
+	rm -f *.o
 
 fclean: clean
 	rm -f $(NAME)

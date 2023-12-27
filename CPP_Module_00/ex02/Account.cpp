@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 00:36:49 by fedmarti          #+#    #+#             */
-/*   Updated: 2016/01/02 03:06:39 by fedmarti         ###   ########.fr       */
+/*   Updated: 2023/12/23 12:30:16 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,19 @@ Account::Account( int initial_deposit ) : _amount(initial_deposit)
 	
 	Account::_nbAccounts++;
 	Account::_totalAmount += this->_amount;
+
+	Account::_displayTimestamp();
+	std::cout << "index:" << this->_accountIndex << ";amount:" << this->_amount << ";created\n";
+}
+
+Account::Account( void )
+{
+	this->_amount = 0;
+	this->_nbDeposits = 0;
+	this->_nbWithdrawals = 0;
+	this->_accountIndex = Account::getNbAccounts();
+	
+	Account::_nbAccounts++;
 
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";amount:" << this->_amount << ";created\n";
