@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 00:52:58 by fedmarti          #+#    #+#             */
-/*   Updated: 2023/12/27 23:38:18 by fedmarti         ###   ########.fr       */
+/*   Updated: 2023/12/30 19:07:59 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ void	Weapon::setType( void * type )
 {
 	if (!type)
 	{
-		std::cout << "Eccheccazzo!?\n";
+		std::cerr << "Eccheccazzo!?\n";
 		return ;
 	}
+	this->_type = std::string((char *)type);
 }
 
 std::string	Weapon::getType( void ) const
@@ -37,16 +38,17 @@ Weapon::Weapon( std::string type ) : _type(type)
 	return ;
 }
 
-Weapon::Weapon( void * ptr ) : _type("")
+Weapon::Weapon( void * ptr ) : _type("Void Weapon")
 {
 	if (!ptr)
 	{
-		std::cout << "A Fijodenamingotta!\n";
+		std::cerr << "A Fijodenamingotta!\n";
 		return ;
 	}
+	this->_type = std::string((char *)ptr);
 }
 
-Weapon::Weapon( void ) : _type("")
+Weapon::Weapon( void ) : _type("Void Weapon")
 {
 	return ;
 }

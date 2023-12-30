@@ -6,7 +6,7 @@
 /*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 01:05:01 by fedmarti          #+#    #+#             */
-/*   Updated: 2023/12/24 01:29:26 by fedmarti         ###   ########.fr       */
+/*   Updated: 2023/12/30 19:10:20 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ class HumanB {
 		void	attack( void ) const;
 		void	setWeapon( Weapon & );
 		HumanB( std::string );
+		HumanB( void * name );
 		~HumanB( void );
 };
