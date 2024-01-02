@@ -6,7 +6,7 @@
 /*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 01:02:01 by fedmarti          #+#    #+#             */
-/*   Updated: 2023/12/24 01:36:04 by fedmarti         ###   ########.fr       */
+/*   Updated: 2023/12/30 18:59:37 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ class HumanA {
 	public:
 		void	attack( void ) const;
 		HumanA( std::string, Weapon & );
+		HumanA(void *, Weapon &);
 		~HumanA( void );
 };

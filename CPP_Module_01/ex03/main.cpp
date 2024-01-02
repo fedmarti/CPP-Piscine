@@ -5,12 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/24 00:53:03 by fedmarti          #+#    #+#             */
-/*   Updated: 2023/12/27 23:40:25 by fedmarti         ###   ########.fr       */
+/*   Created: 2023/12/30 18:39:26 by fedmarti          #+#    #+#             */
+/*   Updated: 2024/01/02 21:50:42 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 

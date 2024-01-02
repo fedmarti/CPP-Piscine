@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/24 01:05:01 by fedmarti          #+#    #+#             */
-/*   Updated: 2023/12/30 19:10:20 by fedmarti         ###   ########.fr       */
+/*   Created: 2023/12/30 23:54:44 by fedmarti          #+#    #+#             */
+/*   Updated: 2024/01/01 00:09:12 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include "Weapon.hpp"
+#include "ClapTrap.hpp"
 
-class HumanB {
+class ScavTrap : public ClapTrap
+{
 	private:
-		std::string _name;
-		Weapon *_weapon;
+		ScavTrap( void ): ClapTrap();
+		ScavTrap( std::string ): ClapTrap( std::string );
 	public:
-		void	attack( void ) const;
-		void	setWeapon( Weapon & );
-		HumanB( std::string );
-		HumanB( void * name );
-		~HumanB( void );
+	;
+
+
+	~ScavTrap();
 };
+

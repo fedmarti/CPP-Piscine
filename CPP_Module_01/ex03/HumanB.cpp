@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 00:52:45 by fedmarti          #+#    #+#             */
-/*   Updated: 2023/12/27 23:23:59 by fedmarti         ###   ########.fr       */
+/*   Updated: 2023/12/30 19:10:02 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ void	HumanB::setWeapon( Weapon &weapon )
 
 HumanB::HumanB( std::string name ) : _name(name)
 {
+	this->_weapon = NULL;
+	return ;
+}
+
+HumanB::HumanB( void * name ) : _name("Default"), _weapon(NULL)
+{
+	if (!name)
+	{
+		std::cerr << "Sul serio?\n";
+	}
 	this->_weapon = NULL;
 	return ;
 }
