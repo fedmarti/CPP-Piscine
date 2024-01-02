@@ -6,7 +6,7 @@
 /*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 23:53:47 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/03 00:25:58 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/03 00:23:07 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ ScavTrap::ScavTrap( void ): ClapTrap()
 {
 	this->_type = "ScavTrap";
 	this->_printName();
-	std::cout << "summoned\n"; 
+	std::cout << "constructed\n"; 
 	this->_energyPoints = 50;
 	this->_hitPoints = 100;
 	this->_attackDamage = 20;
@@ -61,7 +61,7 @@ ScavTrap::ScavTrap( std::string name ) : ClapTrap( name )
 {
 	this->_type = "ScavTrap";
 	this->_printName();
-	std::cout << "summoned\n"; 
+	std::cout << "constructed\n"; 
 	this->_energyPoints = 50;
 	this->_hitPoints = 100;
 	this->_attackDamage = 20;
@@ -71,7 +71,7 @@ ScavTrap::ScavTrap( ScavTrap & ref ) : ClapTrap( ref )
 {
 	this->_type = "ScavTrap";
 	this->_printName();
-	std::cout << "s-copied\n"; 
+	std::cout << "copied\n"; 
 	this->_energyPoints = 50;
 	this->_hitPoints = 100;
 	this->_attackDamage = 20;

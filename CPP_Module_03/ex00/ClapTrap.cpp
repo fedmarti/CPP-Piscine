@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 22:45:12 by fedmarti          #+#    #+#             */
-/*   Updated: 2023/12/30 23:48:22 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/02 23:48:28 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ClapTrap::takeDamage( unsigned int amount )
 {
 	this->printName();
 	std::cout << "took " << amount << " points of damage" << std::endl;
+	this->_hitPoints -= amount;
 }
 
 void	ClapTrap::beRepaired( unsigned int amount )
@@ -68,7 +69,7 @@ ClapTrap::ClapTrap( std::string name ) : _name(name), _hitPoints(10), _energyPoi
 ClapTrap::~ClapTrap( void )
 {
 	this->printName();
-	std::cout << " was destroyed!\n";
+	std::cout << "was destroyed!\n";
 }
 
 ClapTrap & ClapTrap::operator=( ClapTrap & ref )

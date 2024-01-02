@@ -6,7 +6,7 @@
 /*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 22:35:08 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/02 23:56:56 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/02 23:18:15 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ public:
 	ClapTrap & operator=( ClapTrap & );
 	ClapTrap( void );
 	ClapTrap( ClapTrap & );
+
 private:
 	std::string _name;
 protected:
