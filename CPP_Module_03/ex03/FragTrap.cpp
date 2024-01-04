@@ -6,40 +6,53 @@
 /*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 23:50:29 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/03 00:42:34 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/04 22:32:23 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include <iostream>
 
+void	FragTrap::_printName( void ) const
+{
+	std::cout << "FragTrap " << this->getName() << " ";
+}
+
 FragTrap::FragTrap( void ) : ClapTrap()
 {
+	this->_printName();
+	std::cout << "created!\n";
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;
-	this->_type = "FragTrap";
 }
 
 FragTrap::FragTrap( std::string name ) : ClapTrap( name )
 {
+	this->_printName();
+	std::cout << "created!\n";
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;
-	this->_type = "FragTrap";
 }
 FragTrap::FragTrap( FragTrap & ref ) : ClapTrap(ref)
 {
+	this->_printName();
+	std::cout << "created!\n";
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;
-	this->_type = "FragTrap";
 }
 FragTrap::~FragTrap( void )
 {
 	this->_printName();
 	std::cout << "is no more!\n";
-	this->_type = "ClapTrap";
+}
+
+FragTrap & FragTrap::operator=( FragTrap & ref)
+{
+	static_cast<ClapTrap>(*this) = static_cast<ClapTrap &>(ref);
+	return (*this);
 }
 
 void FragTrap::highFivesGuys( void ) const

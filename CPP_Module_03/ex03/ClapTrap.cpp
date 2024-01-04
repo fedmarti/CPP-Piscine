@@ -6,7 +6,7 @@
 /*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 22:45:12 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/03 00:09:19 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/04 23:46:56 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ClapTrap::_printName( void ) const
 {
-	std::cout << this->_type << " " << this->_name << " ";
+	std::cout << "ClapTrap " << this->_name << " ";
 }
 
 void	ClapTrap::attack( const std::string & target )
@@ -71,19 +71,19 @@ int		ClapTrap::getAttackDamage ( void ) const
 }
 
 
-ClapTrap::ClapTrap( void ) : _name("Void"), _hitPoints(10), _energyPoints(10), _attackDamage(0), _type("ClapTrap")
+ClapTrap::ClapTrap( void ) : _name("Void"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	this->_printName();
 	std::cout << "constructed!\n";
 }
 
-ClapTrap::ClapTrap( ClapTrap & ref ) : _name(ref._name), _hitPoints(ref._hitPoints), _energyPoints(ref._energyPoints), _attackDamage(ref._attackDamage), _type(ref._type)
+ClapTrap::ClapTrap( ClapTrap & ref ) : _name(ref._name), _hitPoints(ref._hitPoints), _energyPoints(ref._energyPoints), _attackDamage(ref._attackDamage)
 {
 	this->_printName();
 	std::cout << "copied!\n";
 }
 
-ClapTrap::ClapTrap( std::string name ) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0), _type("ClapTrap")
+ClapTrap::ClapTrap( std::string name ) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	this->_printName();
 	std::cout << "constructed!\n";

@@ -6,7 +6,7 @@
 /*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 23:50:29 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/03 00:42:34 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/04 20:44:37 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@ FragTrap::~FragTrap( void )
 	this->_printName();
 	std::cout << "is no more!\n";
 	this->_type = "ClapTrap";
+}
+
+FragTrap & FragTrap::operator=( FragTrap & ref)
+{
+	static_cast<ClapTrap>(*this) = static_cast<ClapTrap &>(ref);
+	return (*this);
 }
 
 void FragTrap::highFivesGuys( void ) const
