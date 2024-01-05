@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 00:19:15 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/05 00:27:16 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/05 13:10:48 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ public:
 	~Dog( void );
 
 	Dog & operator=( Dog & );
-	void makeSound( void );
+	using Animal::makeSound;
+	void makeSound( void ) const;
 };

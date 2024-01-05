@@ -12,7 +12,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c -o $@
+	$(CC) $(CFLAGS) -c $^
 
 all:$(NAME)
 

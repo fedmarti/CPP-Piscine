@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 00:20:03 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/05 00:27:29 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/05 13:16:39 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ class Animal {
 public:
 	Animal( void );
 	Animal( Animal & );
-	~Animal( void );
+	virtual ~Animal( void );
 	Animal & operator=( Animal & );
 
-	void makeSound( void ); 
+	std::string		getType( void ) const;
+	virtual void	makeSound( void ) const; 
 protected:
 	std::string _type;
 };
