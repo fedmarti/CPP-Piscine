@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:29:54 by fedmarti          #+#    #+#             */
-/*   Updated: 2023/12/27 00:26:04 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/09 00:34:52 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "Fixed.hpp"
+#include <iostream>
 
 class Point {
 public:
@@ -30,3 +31,5 @@ private:
 	const Fixed _x;
 	const Fixed _y;
 };
+
+std::ostream & operator << ( std::ostream & output, const Point &rhs );

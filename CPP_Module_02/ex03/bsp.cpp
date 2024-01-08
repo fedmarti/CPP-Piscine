@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:29:52 by fedmarti          #+#    #+#             */
-/*   Updated: 2023/12/27 01:30:37 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/09 00:26:46 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 static inline int sign(float a)
 {
-	return (2 * (a >= 0) - 1);
+	return (2 * (a >= 0) - 1) - (a == 0);
 }
 
 static inline int sign(int a)
 {
-	return (2 * (a >= 0) - 1);
+	return (2 * (a >= 0) - 1) - (a == 0);
 }
 
 static inline int sign(Fixed a)
 {
-	return (2 * (a >= Fixed(0)) - 1);
+	return (2 * (a >= Fixed(0)) - 1) - (a == 0);
 }
 
 Fixed abs(Fixed a)
@@ -34,20 +34,23 @@ Fixed abs(Fixed a)
 	return (a);
 }
 
-ax + by + c = 0
+// ax + by + c = 0
 
-ax + c = - by 
+// ax + c = - by 
 
-ax/b + c/b = y
+// ax/b + c/b = y
  
-ax/b + c/b = mx + i
+// ax/b + c/b = mx + i
 
-ax/b - mx = i - c/b
+// ax/b - mx = i - c/b
 
-(ax - mxb)/b = i - c/b 
-x(a - mb)/b = i - c/b
+// (ax - mxb)/b = i - c/b 
+// x(a - mb)/b = i - c/b
 
-
+static Fixed get_intercept(Point A, Fixed slope)
+{
+	return (A.getY() - (slope * A.getX()));
+}
 
 static bool	is_within_partition(Point const A, Point const B, Point const C, Point const point)
 {
@@ -57,11 +60,9 @@ static bool	is_within_partition(Point const A, Point const B, Point const C, Poi
 		|| A.getX() == point.getX());
 	}
 	Fixed slope = (B.getY() - A.getY()) / (B.getX() - A.getX());
-	Fixed yintercept = A.getY() - (slope * A.getX());
+	Fixed yintercept = get_intercept(A, slope);
 
-
-
-
+	return (sign(get_intercept(C, slope) - yintercept) == sign(get_intercept(point, slope) - yintercept));
 }
 
 bool bsp( Point const a, Point const b, Point const c, Point const point )
