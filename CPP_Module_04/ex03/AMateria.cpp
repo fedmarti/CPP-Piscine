@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:30:05 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/07 22:43:30 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/08 22:54:56 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 #include <iostream>
 
-AMateria::AMateria(std::string const & type) : _type(type)
+AMateria::AMateria( std::string const & type ) : _type(type)
 {
 	;
 }
@@ -31,4 +31,20 @@ void	AMateria::use( ICharacter & target )
 AMateria::~AMateria( void )
 {
 	;
+}
+
+AMateria::AMateria( void ) : _type("")
+{
+	;
+}
+
+AMateria::AMateria( AMateria & ref ) : _type(ref._type)
+{
+	;
+}
+
+AMateria & AMateria::operator=( AMateria & rhs )
+{
+	static_cast<void>(rhs);
+	return (*this);
 }

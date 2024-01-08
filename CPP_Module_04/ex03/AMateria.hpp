@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:15:03 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/07 23:53:48 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/08 22:54:34 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ class AMateria
 protected:
 	std::string _type;
 	AMateria & operator=( AMateria & ref );
+	AMateria( AMateria & ref );
+	AMateria( void );
 public:
 	AMateria( std::string const & type );
 	virtual ~AMateria( void );
