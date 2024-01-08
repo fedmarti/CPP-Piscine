@@ -1,10 +1,10 @@
-NAME=Harl
+NAME=HarlFilter
 
 SRC=main.cpp Harl.cpp
 
 CC=c++
 
-CFLAGS = -Wall -Wextra -Werror -Werror -Werror=implicit-fallthrough=0 -std=c++98
+CFLAGS = -Wall -Wextra -Werror -Werror -std=c++98
 OBJ = $(SRC:%.cpp=%.o)
 
 all: $(NAME)

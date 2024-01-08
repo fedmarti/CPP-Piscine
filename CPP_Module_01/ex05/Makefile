@@ -1,4 +1,4 @@
-NAME=harlFilter
+NAME=harl2.0
 
 SRC=main.cpp Harl.cpp
 

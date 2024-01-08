@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 15:06:49 by fedmarti          #+#    #+#             */
-/*   Updated: 2023/12/24 17:28:00 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/08 20:14:55 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,20 @@ std::string read_file(char *file_name, bool &success)
 	return (fcontent);
 }
 
+std::string ft_sreplace( std::string str, std::string find, std::string replace )
+{
+	if (find == replace)
+		return (str);
+	for (size_t match = str.find(find); match < str.size(); match = str.find(find))
+	{
+		std::string rest = str.substr(match + find.length());
+		str.erase(match);
+		str.append(replace);
+		str.append(rest);
+	}
+	return (str);
+}
+
 int	main ( int argc, char **argv )
 {
 	if (argc != 4)
@@ -47,14 +61,7 @@ int	main ( int argc, char **argv )
 	}
 	
 	std::string find = argv[2];
-	// std::cout << fcontent << std::endl; // just reads file for debugging
-	for (size_t match = fcontent.find(find); match < fcontent.size(); match = fcontent.find(find))
-	{
-		std::string rest = fcontent.substr(match + find.length());
-		fcontent.erase(match);
-		fcontent.append(argv[3]);
-		fcontent.append(rest);
-	}
+	fcontent = ft_sreplace(fcontent, argv[2], argv[3]);
 
 	std::string	newname = argv[1];
 	newname += ".replace";

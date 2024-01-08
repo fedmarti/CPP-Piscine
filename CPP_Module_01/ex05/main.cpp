@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:30:39 by fedmarti          #+#    #+#             */
-/*   Updated: 2023/12/24 18:10:15 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/08 20:25:23 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,19 @@ int main ( int argc, char **argv )
 		harl.complain("Error");
 		return (0);
 	}
-	harl.complain((std::string){argv[1]});
+	std::string level;
+	if (argc > 1)
+		level = argv[1];
+	else
+		level = "";
+	for (std::string::iterator i = level.begin(); i != level.end(); i++)
+	{
+		if (i == level.begin())
+		{
+			*i = toupper(*i);
+		}
+		else
+			*i = tolower(*i);
+	}
+	harl.complain(level);
 }
