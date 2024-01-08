@@ -6,7 +6,7 @@
 /*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 00:20:03 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/07 13:03:18 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/07 02:32:59 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 
 	Brain			*getBrain( void ) const;
 	std::string		getType( void ) const;
-	virtual void	makeSound( void ) const = 0; 
+	virtual void	makeSound( void ) const; 
 protected:
 	std::string _type;
 	Brain 		*_brain;

@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 00:20:03 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/07 13:03:18 by fedmarti         ###   ########.fr       */
+/*   Created: 2024/01/05 00:25:07 by fedmarti          #+#    #+#             */
+/*   Updated: 2024/01/05 12:55:06 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <string>
-#include "Brain.hpp"
+#include "Animal.hpp"
 
-class Animal {
+class Cat : public Animal {
 public:
-	Animal( void );
-	Animal( Animal & );
-	virtual ~Animal( void );
-	Animal & operator=( Animal & );
+	Cat( void );
+	Cat( Cat & );
+	~Cat( void );
+	Cat & operator=( Cat & );
 
-	Brain			*getBrain( void ) const;
-	std::string		getType( void ) const;
-	virtual void	makeSound( void ) const = 0; 
-protected:
-	std::string _type;
-	Brain 		*_brain;
+	void makeSound( void ) const;
 };

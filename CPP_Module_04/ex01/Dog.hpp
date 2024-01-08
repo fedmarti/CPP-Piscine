@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 00:20:03 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/07 13:03:18 by fedmarti         ###   ########.fr       */
+/*   Created: 2024/01/05 00:19:15 by fedmarti          #+#    #+#             */
+/*   Updated: 2024/01/05 13:10:48 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <string>
-#include "Brain.hpp"
+#include "Animal.hpp"
 
-class Animal {
+class Dog : public Animal {
 public:
-	Animal( void );
-	Animal( Animal & );
-	virtual ~Animal( void );
-	Animal & operator=( Animal & );
+	Dog( void );
+	Dog( Dog & );
+	~Dog( void );
 
-	Brain			*getBrain( void ) const;
-	std::string		getType( void ) const;
-	virtual void	makeSound( void ) const = 0; 
-protected:
-	std::string _type;
-	Brain 		*_brain;
+	Dog & operator=( Dog & );
+	using Animal::makeSound;
+	void makeSound( void ) const;
 };

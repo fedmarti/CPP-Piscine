@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 00:20:03 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/07 13:03:18 by fedmarti         ###   ########.fr       */
+/*   Created: 2024/01/06 20:41:56 by fedmarti          #+#    #+#             */
+/*   Updated: 2024/01/06 20:45:29 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
-#include "Brain.hpp"
 
-class Animal {
+class Brain {
 public:
-	Animal( void );
-	Animal( Animal & );
-	virtual ~Animal( void );
-	Animal & operator=( Animal & );
+	Brain( void );
+	Brain( Brain & );
+	~Brain( void );
 
-	Brain			*getBrain( void ) const;
-	std::string		getType( void ) const;
-	virtual void	makeSound( void ) const = 0; 
-protected:
-	std::string _type;
-	Brain 		*_brain;
+	Brain & operator=( Brain & );
+private:
+	static const int NIDEAS = 100;
+	std::string _ideas[NIDEAS];
 };

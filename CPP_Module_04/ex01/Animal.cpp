@@ -6,7 +6,7 @@
 /*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 00:19:53 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/07 02:37:51 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/07 01:45:17 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 std::string	Animal::getType( void ) const
 {
 	return (this->_type);
+}
+
+void	Animal::makeSound( void ) const	
+{
+	std::cout << "*Animal sound*" << std::endl;
 }
 
 Brain	*Animal::getBrain( void ) const

@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 00:20:03 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/07 13:03:18 by fedmarti         ###   ########.fr       */
+/*   Created: 2024/01/05 00:19:03 by fedmarti          #+#    #+#             */
+/*   Updated: 2024/01/05 13:17:00 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include <string>
-#include "Brain.hpp"
+#include "Dog.hpp"
+#include <iostream>
 
-class Animal {
-public:
-	Animal( void );
-	Animal( Animal & );
-	virtual ~Animal( void );
-	Animal & operator=( Animal & );
+void Dog::makeSound( void ) const
+{
+	std::cout << "*Woof*" << std::endl;
+}
 
-	Brain			*getBrain( void ) const;
-	std::string		getType( void ) const;
-	virtual void	makeSound( void ) const = 0; 
-protected:
-	std::string _type;
-	Brain 		*_brain;
-};
+Dog::Dog( void )
+{
+	this->_type = "Dog";
+}
+
+Dog::Dog( Dog & ref ) : Animal( static_cast<Animal &>(ref))
+{
+	this->_type = ref._type;
+}
+
+Dog::~Dog( void )
+{
+	this->_type = "Animal";
+}
+
+Dog & Dog::operator=( Dog & rhs )
+{
+	this->_type = rhs._type;
+	return (*this);
+}
