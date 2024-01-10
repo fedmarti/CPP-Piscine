@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:29:14 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/09 00:38:09 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/09 02:23:59 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 std::ostream & operator << ( std::ostream & output, const Point &rhs )
 {
-	output << "{X: " << rhs.getX() << " Y: " << rhs.getY() << "}";
+	return output << "{X: " << rhs.getX() << " Y: " << rhs.getY() << "}";
 }
 
 Fixed Point::getX( void ) const

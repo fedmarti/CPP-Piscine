@@ -1,14 +1,10 @@
-NAME=fixed
-
-TEST = testbin
-
-TESTOUTPUT = "0\n0.00390625\n0.00390625\n0.00390625\n0.0078125\n10.1016\n10.1016"
+NAME=bsp
 
 CC=c++
 
 CFLAGS=-Wall -Wextra -Werror -std=c++98 -g
 
-SRC=main.cpp Fixed.cpp Point.cpp
+SRC=main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 OBJ=$(SRC:%.cpp=%.o)
 
