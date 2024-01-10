@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 18:16:06 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/09 02:23:18 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/10 18:07:40 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,18 @@
 
 bool bsp( Point const a, Point const b, Point const c, Point const point );
 
-Point input_point( char name )
+static Point input_point( char name )
 {
 	float x,y;
 	
 	std::cout << name << ".x: ";
 	std::cin >> x;
-	std::cout << " " << name << ".x: ";
+	if (std::cin.fail() || std::cin.eof())
+		return (Point(0,0));
+	std::cout << " " << name << ".y: ";
 	std::cin >> y;
+	if (std::cin.fail() || std::cin.eof())
+		return (Point(x,0));
 	return (Point(x, y));
 }
 

@@ -6,21 +6,21 @@
 /*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:29:52 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/09 00:26:46 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/10 18:07:49 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-static inline int sign(float a)
-{
-	return (2 * (a >= 0) - 1) - (a == 0);
-}
+// static inline int sign(float a)
+// {
+// 	return (2 * (a >= 0) - 1) - (a == 0);
+// }
 
-static inline int sign(int a)
-{
-	return (2 * (a >= 0) - 1) - (a == 0);
-}
+// static inline int sign(int a)
+// {
+// 	return (2 * (a >= 0) - 1) - (a == 0);
+// }
 
 static inline int sign(Fixed a)
 {
