@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 00:19:53 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/05 12:13:15 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:30:41 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ void	Animal::makeSound( void ) const
 
 Animal::Animal( void ) : _type("Animal")
 {
-	return ;
+	std::cout << "Animal constructed" << std::endl;
 }
 
 Animal::Animal( Animal & ref ) : _type(ref._type)
 {
-	return ;
+	std::cout << "Animal constructed" << std::endl;
 }
 
 Animal::~Animal( void )
 {
-	return ;
+	std::cout << "Animal destructed" << std::endl;
 }
 
 Animal & Animal::operator=( Animal & rhs )

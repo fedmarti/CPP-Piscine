@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 00:19:03 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/05 13:17:00 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/11 22:03:06 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,33 @@ void Dog::makeSound( void ) const
 
 Dog::Dog( void )
 {
+	this->_brain = new Brain;
+	std::cout << "Dog constructed" << std::endl;
 	this->_type = "Dog";
 }
 
 Dog::Dog( Dog & ref ) : Animal( static_cast<Animal &>(ref))
 {
-	this->_type = ref._type;
+	this->_brain = new Brain;
+	std::cout << "Dog constructed" << std::endl;
+	*this = ref;
 }
 
 Dog::~Dog( void )
 {
+	delete this->_brain;
+	std::cout << "Dog deconstructed" << std::endl;
 	this->_type = "Animal";
 }
 
 Dog & Dog::operator=( Dog & rhs )
 {
 	this->_type = rhs._type;
+	*this->_brain = *rhs._brain;
 	return (*this);
+}
+
+Brain	*Dog::getBrain( void ) const
+{
+	return this->_brain;
 }

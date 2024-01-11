@@ -1,4 +1,4 @@
-NAME=fire
+NAME=Interface
 
 SRC=main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp ICharacter.cpp IMateriaSource.cpp
 

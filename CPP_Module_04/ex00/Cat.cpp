@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 00:24:58 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/05 13:12:25 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:32:14 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ void	Cat::makeSound( void ) const
 
 Cat::Cat( void )
 {
+	std::cout << "Cat constructed" << std::endl;
 	this->_type = "Cat";
 	return ;
 }
 
 Cat::Cat( Cat & ref ) : Animal( static_cast<Animal &>(ref))
 {
+	std::cout << "Cat constructed" << std::endl;
 	if (ref._type == "Dog")
 		std::cout << "What da dog doin?\n";
 	return ;
@@ -33,6 +35,7 @@ Cat::Cat( Cat & ref ) : Animal( static_cast<Animal &>(ref))
 
 Cat::~Cat( void )
 {
+	std::cout << "Cat deconstructed" << std::endl;
 	this->_type = "Animal";
 }
 

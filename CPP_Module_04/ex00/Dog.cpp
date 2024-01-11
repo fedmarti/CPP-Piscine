@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 00:19:03 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/05 13:17:00 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:33:07 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,19 @@ void Dog::makeSound( void ) const
 
 Dog::Dog( void )
 {
+	std::cout << "Dog constructed" << std::endl;
 	this->_type = "Dog";
 }
 
 Dog::Dog( Dog & ref ) : Animal( static_cast<Animal &>(ref))
 {
+	std::cout << "Dog constructed" << std::endl;
 	this->_type = ref._type;
 }
 
 Dog::~Dog( void )
 {
+	std::cout << "Dog deconstructed" << std::endl;
 	this->_type = "Animal";
 }
 

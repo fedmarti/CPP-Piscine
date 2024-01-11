@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 00:25:07 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/05 12:55:06 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/11 22:03:19 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,8 @@ public:
 	~Cat( void );
 	Cat & operator=( Cat & );
 
-	void makeSound( void ) const;
+	void 	makeSound( void ) const;
+	Brain	*getBrain( void ) const;
+private:
+	Brain	*_brain;
 };

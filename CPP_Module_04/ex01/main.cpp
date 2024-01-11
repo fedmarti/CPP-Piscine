@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 20:53:40 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/07 02:32:04 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:59:23 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,25 @@ int main()
 {
 	const int	len = 10;
 	Animal 		*gang[len];
-	Animal		copyCat;
-	Animal		copyDawg;
+	Cat		copyCat;
+	Dog		copyDawg;
 
 	for (int i = 0; i < (len / 2); i++)
-		gang[i] = new Dog;
-	for (int i = len / 2; i < len; i++)
-		gang[i] = new Cat;
-
-	for (int i = 0; i < len; i++)
 	{
-		std::cout << "Animal N." << i << " type: " << gang[i]->getType() << "\n";
-		std::cout << "Brain address: " << gang[i]->getBrain() << std::endl;
+		gang[i] = new Dog;
+		Dog *tempdog = static_cast<Dog *>(gang[i]);
+		std::cout << "Brain address: " << tempdog->getBrain() << std::endl;
 	}
-	copyDawg = *gang[len / 2 - 1];
-	std::cout << "CopyDog brain: " << copyDawg.getBrain()<< "\n";
-	copyCat = *gang[len - 1];
+	for (int i = len / 2; i < len; i++)
+	{
+		gang[i] = new Cat;
+		Cat *tempcat = static_cast<Cat *>(gang[i]);
+		std::cout << "Brain address: " << tempcat->getBrain() << std::endl;
+	}
+
+	copyDawg = *static_cast<Dog *>(gang[len / 2 - 1]);
+	std::cout << "CopyDog brain: " << copyDawg.getBrain()<< "\n:";
+	copyCat = *static_cast<Cat *>(gang[len - 1]);
 	std::cout << "CopyCat brain: " << copyCat.getBrain() << "\n"; 
 
 
