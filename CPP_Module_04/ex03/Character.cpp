@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:28:11 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/07 23:59:05 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/11 23:01:58 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	Character::equip( AMateria *m )
 void	Character::unequip( int idx )
 {
 	this->_printName();
-	if (idx >= this->_nMaterias)
+	if (idx >= this->_nMaterias || idx < 0)
 	{
 		std::cout << "Tried to unequip a materia from slot " << idx << " but it was empty..." << std::endl;
 		return ;
@@ -58,7 +58,7 @@ void	Character::unequip( int idx )
 void	Character::use( int idx, ICharacter& target ) const
 {
 	this->_printName();
-	if (idx >= this->_nMaterias)
+	if (idx >= this->_nMaterias || idx < 0)
 	{
 		std::cout << "Tried to use a materia from slot " << idx << " but it was empty..." << std::endl;
 		return ;

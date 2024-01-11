@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 20:05:56 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/08 00:00:34 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/11 23:02:26 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ MateriaSource & MateriaSource::operator=( MateriaSource & rhs )
 	static_cast<void>(rhs);
 	return (*this);
 }
-
 
 MateriaSource::MateriaSource( MateriaSource & ref )
 {
