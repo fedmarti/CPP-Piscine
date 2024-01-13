@@ -6,7 +6,7 @@
 /*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:28:11 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/11 23:01:58 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/13 15:59:04 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ void	Character::_printName( void ) const
 void	Character::equip( AMateria *m )
 {
 	this->_printName();
+	if (!m)
+	{
+		std::cout << "Couldn't equip NULL materia" << std::endl;
+		return ;
+	}
 	std::cout << "Equipped materia " << m->getType();
 	if (this->_nMaterias >= Character::INV_SIZE)
 	{

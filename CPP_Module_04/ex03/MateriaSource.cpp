@@ -6,7 +6,7 @@
 /*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 20:05:56 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/01/11 23:02:26 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/01/13 15:59:34 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ MateriaSource::~MateriaSource( void )
 }
 void MateriaSource::learnMateria( AMateria* m )
 {
+	if (!m)
+		return ;
 	if (this->_learned == MateriaSource::MAX_MAT)
 	{
 		if (m)
