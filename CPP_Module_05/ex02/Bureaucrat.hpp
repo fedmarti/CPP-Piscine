@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 20:06:48 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/04/28 15:54:43 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/04/30 01:14:25 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ public:
 	void			incrementGrade( void ) throw(Bureaucrat::GradeTooHighException);
 	void			decrementGrade( void ) throw(Bureaucrat::GradeTooLowException);
 	void			signForm( AForm & ) const;
+	void			executeForm( AForm const & form ) const;
 	const static int	_MIN_GRADE = 150;
 	const static int	_MAX_GRADE = 1;
 	

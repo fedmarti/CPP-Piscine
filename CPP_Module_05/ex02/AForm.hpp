@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 23:29:48 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/04/28 15:55:10 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/04/30 01:28:32 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ class AForm
 public:
 	class GradeTooLowException : public std::exception {
 	public:
-		virtual const char *what( void ) const throw();	
+		const char *what( void ) const throw();	
 	};
 	class GradeTooHighException : public std::exception {
 	public:
-		virtual const char *what( void ) const throw();	
+		const char *what( void ) const throw();	
 	};
 	
 	virtual ~AForm( void );
@@ -32,6 +32,8 @@ public:
 	int			getSigningGrade( void ) const;
 	std::string	getName( void ) const;
 	bool		getSigned( void ) const;
+
+	virtual void	execute(Bureaucrat const & executor) const = 0; 
 	
 	AForm & operator = ( AForm &rhs );
 private:

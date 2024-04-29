@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 AForm::AForm( void ) : _name("n/a"), _signed(false), _execution_grade(150), _signing_grade(150)
 {

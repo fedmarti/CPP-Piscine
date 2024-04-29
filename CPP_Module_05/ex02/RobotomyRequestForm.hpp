@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 19:01:28 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/04/28 19:04:24 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/04/30 01:28:25 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 #include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm {
-
+public:
+	
+	void	execute(Bureaucrat const & executor) const;
+private:
+	
 };
