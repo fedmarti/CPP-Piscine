@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 19:01:05 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/04/28 19:21:25 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/04/30 23:35:41 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,14 @@
 #include "AForm.hpp"
 
 class ShrubberyCreationForm : public AForm {
-	public:
+	ShrubberyCreationForm( const std::string target );
 	~ShrubberyCreationForm( void );
-	private:
+	
+	void				execute(Bureaucrat const & executor) const throw( GradeTooLowException );
+	const std::string	getTarget( void ) const;
+private:
+	const std::string	_target;
 	ShrubberyCreationForm( void );
+	ShrubberyCreationForm( ShrubberyCreationForm & ref );
+	ShrubberyCreationForm & operator = ( ShrubberyCreationForm & rhs );
 };
