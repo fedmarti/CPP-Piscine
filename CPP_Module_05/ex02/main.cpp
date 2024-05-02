@@ -1,50 +1,85 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
-	int	grade;
 	std::string b_name = "Bernie";
-	Bureaucrat *bur;
+	Bureaucrat *small = NULL, *big = NULL;
 
-	std::cout << "input bureaucrat " << b_name << "'s grade" << std::endl;
-	std::cin >> grade;
 	try
 	{
-		bur = new Bureaucrat(b_name, grade);
-		std::cout << *bur;
+		small = new Bureaucrat("Stinky", Bureaucrat::_MIN_GRADE);
+		std::cout << *small;
 	}
 	catch (std::exception &e)
 	{
+		delete (small);
 		std::cerr << e.what() << std::endl;
-		delete (bur);
 		return (1);
 	}
-
 	try
 	{
-		int e_grade, s_grade;
-
-		std::cout << "input required execution grade " << std::endl;
-		std::cin >> e_grade;
-	
-		std::cout << "input required signing grade " << std::endl;
-		std::cin >> s_grade;
-		AForm form("boring stuff", e_grade, s_grade);
-		while (!form.getSigned())
-		{
-			bur->signForm(form);
-			if (!form.getSigned() && bur->getGrade() > 1)
-			{
-				std::cout << bur->getName() << "grade incremented" << std::endl;
-				bur->incrementGrade();
-			}
-		}
+		big = new Bureaucrat("Boss", Bureaucrat::_MAX_GRADE);
+		std::cout << *big;
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "exception caught:" << e.what() << std::endl;
+		delete (small);
+		delete (big);
+		std::cerr << e.what() << std::endl;
+		return (1);
 	}
-	delete (bur);
-	return (0);
+	
+	try
+	{
+		std::string target;
+
+		std::cout << "Enter target:" << std::endl;
+
+		std::getline(std::cin, target);
+		AForm *form1, *form2, *form3;
+		
+		PresidentialPardonForm f1(target);
+		form1 = &f1;
+		std::cout << form1 << std::endl;
+
+		std::cout << "Enter target:" << std::endl;
+		RobotomyRequestForm f2(target);
+		form2 = &f2; 
+		std::cout << form2 << std::endl;
+
+
+		std::cout << "Enter target:" << std::endl;
+		ShrubberyCreationForm f3(target);
+		form3 = &f3;
+		std::cout << form3 << std::endl;
+
+		small->executeForm(form1);
+		big->executeForm(form2);
+		small->executeForm(form3);
+
+		small->signForm(form1);
+		big->signForm(form1);
+		small->signForm(form2);
+		big->signForm(form2);
+		small->signForm(form3);
+		big->signForm(form3);
+		
+		small->executeForm(form1);
+		big->executeForm(form1);
+		small->executeForm(form2);
+		big->executeForm(form2);
+		small->executeForm(form3);
+		big->executeForm(form3);
+		
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "error: " << e.what() << std::endl;
+	}
+	delete (small);
+	delete (big);
 }

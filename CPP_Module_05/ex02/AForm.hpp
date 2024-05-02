@@ -24,7 +24,10 @@ public:
 	public:
 		const char *what( void ) const throw();	
 	};
-	
+	class NotSignedException : public std::exception {
+	public:
+		const char *what( void ) const throw();
+	};
 	virtual ~AForm( void );
 	AForm( std::string name, int e_grade, int s_grade ) throw( GradeTooLowException, GradeTooHighException );
 	void		beSigned( const Bureaucrat & ) throw( GradeTooLowException );
@@ -33,7 +36,7 @@ public:
 	std::string	getName( void ) const;
 	bool		getSigned( void ) const;
 
-	virtual void	execute(Bureaucrat const & executor) const throw( GradeTooLowException ) = 0; 
+	virtual void	execute(Bureaucrat const & executor) const throw( GradeTooLowException, NotSignedException ) = 0; 
 	
 	AForm & operator = ( AForm &rhs );
 private:
@@ -46,4 +49,4 @@ private:
 	const int			_signing_grade;
 };
 
-std::ostream & operator << ( std::ostream & output, AForm rhs );
+std::ostream & operator << ( std::ostream & output, AForm *rhs );

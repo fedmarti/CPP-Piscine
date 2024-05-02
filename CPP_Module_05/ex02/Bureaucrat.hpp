@@ -35,8 +35,8 @@ public:
 	std::string		getName( void ) const;
 	void			incrementGrade( void ) throw(Bureaucrat::GradeTooHighException);
 	void			decrementGrade( void ) throw(Bureaucrat::GradeTooLowException);
-	void			signForm( AForm & ) const;
-	void			executeForm( AForm const & form ) const;
+	void			signForm( AForm *form ) const;
+	void			executeForm( AForm *form ) const;
 	const static int	_MIN_GRADE = 150;
 	const static int	_MAX_GRADE = 1;
 	

@@ -19,7 +19,7 @@ public:
 	~PresidentialPardonForm( void );
 
 	const std::string	getTarget( void ) const;
-	void	execute(Bureaucrat const & executor) const throw( GradeTooLowException );
+	void	execute(Bureaucrat const & executor) const throw( GradeTooLowException, NotSignedException );
 private:
 	const	std::string	_target;
 

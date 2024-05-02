@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm( const std::string target ) : AForm("Robotomy Request", 45, 72), _target(target)
 {
@@ -27,10 +28,12 @@ const std::string	RobotomyRequestForm::getTarget( void ) const
 	return (_target);
 }
 
-void	RobotomyRequestForm::execute(Bureaucrat const & executor) const throw( GradeTooLowException )
+void	RobotomyRequestForm::execute(Bureaucrat const & executor) const throw( GradeTooLowException, NotSignedException )
 {
 	if (executor.getGrade() > getExecutionGrade())
 		throw(GradeTooLowException());
+	if (!getSigned())
+		throw(NotSignedException());
 
 	std::cout << "*Drilling noises*\n...\n";
 	if (rand() % 2)
@@ -42,15 +45,16 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const throw( Grad
 	std::cout << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( void )
+RobotomyRequestForm::RobotomyRequestForm( void ) : AForm("n\a", 0, 0)
 {
 	;
 }
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm & ref )
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm & ref ) : AForm("n\a", 0, 0)
 {
-	;
+	(void)ref;
 }
 RobotomyRequestForm & RobotomyRequestForm::operator = ( RobotomyRequestForm & rhs )
 {
-	;
+	(void)rhs;
+	return (*this);
 }

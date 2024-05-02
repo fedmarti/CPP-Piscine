@@ -14,10 +14,11 @@
 #include "AForm.hpp"
 
 class ShrubberyCreationForm : public AForm {
+public:
 	ShrubberyCreationForm( const std::string target );
 	~ShrubberyCreationForm( void );
 	
-	void				execute(Bureaucrat const & executor) const throw( GradeTooLowException );
+	void				execute(Bureaucrat const & executor) const throw( GradeTooLowException, NotSignedException );
 	const std::string	getTarget( void ) const;
 private:
 	const std::string	_target;

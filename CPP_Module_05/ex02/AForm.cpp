@@ -45,6 +45,11 @@ const char *AForm::GradeTooHighException::what( void ) const throw()
 	return ( "Grade too high" );
 }
 
+const char *AForm::NotSignedException::what( void ) const throw()
+{
+	return ( "Form not signed yet" );
+}
+
 void	AForm::beSigned( const Bureaucrat & bur ) throw( GradeTooLowException )
 {
 	if (bur.getGrade() > _signing_grade)
@@ -78,8 +83,8 @@ AForm & AForm::operator = ( AForm &rhs )
 	return (*this);
 }
 
-std::ostream & operator << ( std::ostream &output, AForm rhs )
+std::ostream & operator << ( std::ostream &output, AForm *rhs )
 {
-	output << "AForm" << rhs.getName() << "\nGrade requirements: Execution " << rhs.getExecutionGrade() << ", Signing " << rhs.getSigningGrade() << std::endl;
+	output << "AForm" << rhs->getName() << "\nGrade requirements: Execution " << rhs->getExecutionGrade() << ", Signing " << rhs->getSigningGrade() << std::endl;
 	return (output);
 }

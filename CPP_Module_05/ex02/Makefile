@@ -1,4 +1,4 @@
-NAME=maggots!
+NAME=28Bnot28C
 
 SRC=main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
@@ -17,6 +17,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -c $^
 
 clean:
+	rm -f *_shrubbery
 	rm -f $(OBJ)
 
 fclean: clean
