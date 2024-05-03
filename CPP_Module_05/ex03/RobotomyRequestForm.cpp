@@ -6,7 +6,7 @@
 /*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 18:59:30 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/05/01 01:26:43 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/05/03 17:34:28 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ const std::string	RobotomyRequestForm::getTarget( void ) const
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const throw( GradeTooLowException, NotSignedException )
 {
-	if (executor.getGrade() > getExecutionGrade())
-		throw(GradeTooLowException());
 	if (!getSigned())
 		throw(NotSignedException());
+	if (executor.getGrade() > getExecutionGrade())
+		throw(GradeTooLowException());
 
 	std::cout << "*Drilling noises*\n...\n";
 	srand(time(NULL));

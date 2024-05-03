@@ -85,7 +85,7 @@ AForm & AForm::operator = ( AForm &rhs )
 
 std::ostream & operator << ( std::ostream &output, AForm *rhs )
 {
-	output << "AForm" << rhs->getName() << "\nGrade requirements: Execution " << rhs->getExecutionGrade() << ", Signing " << rhs->getSigningGrade() << std::endl;
+	output << "AForm " << rhs->getName() << "\nGrade requirements: Execution " << rhs->getExecutionGrade() << ", Signing " << rhs->getSigningGrade() << std::endl;
 	return (output);
 }
 

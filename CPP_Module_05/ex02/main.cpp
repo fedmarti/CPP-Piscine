@@ -16,7 +16,6 @@ int main()
 	}
 	catch (std::exception &e)
 	{
-		delete (small);
 		std::cerr << e.what() << std::endl;
 		return (1);
 	}
@@ -28,7 +27,6 @@ int main()
 	catch (std::exception &e)
 	{
 		delete (small);
-		delete (big);
 		std::cerr << e.what() << std::endl;
 		return (1);
 	}
@@ -37,7 +35,7 @@ int main()
 	{
 		std::string target;
 
-		std::cout << "Enter target:" << std::endl;
+		std::cout << "Enter target of form1:" << std::endl;
 
 		std::getline(std::cin, target);
 		AForm *form1, *form2, *form3;
@@ -46,13 +44,15 @@ int main()
 		form1 = &f1;
 		std::cout << form1 << std::endl;
 
-		std::cout << "Enter target:" << std::endl;
+		std::cout << "Enter target of form2:" << std::endl;
+		std::getline(std::cin, target);
 		RobotomyRequestForm f2(target);
 		form2 = &f2; 
 		std::cout << form2 << std::endl;
 
 
-		std::cout << "Enter target:" << std::endl;
+		std::cout << "Enter target of form3:" << std::endl;
+		std::getline(std::cin, target);
 		ShrubberyCreationForm f3(target);
 		form3 = &f3;
 		std::cout << form3 << std::endl;

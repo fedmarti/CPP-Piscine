@@ -17,7 +17,6 @@ int main()
 	catch (std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
-		delete (bur);
 		return (1);
 	}
 
@@ -36,7 +35,7 @@ int main()
 			bur->signForm(form);
 			if (!form.getSigned() && bur->getGrade() > 1)
 			{
-				std::cout << bur->getName() << "grade incremented" << std::endl;
+				std::cout << bur->getName() << " grade incremented" << std::endl;
 				bur->incrementGrade();
 			}
 		}

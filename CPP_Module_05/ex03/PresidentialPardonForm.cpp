@@ -6,7 +6,7 @@
 /*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 18:58:16 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/05/02 16:33:33 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/05/03 17:34:21 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ const std::string	PresidentialPardonForm::getTarget( void ) const
 
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const throw( GradeTooLowException, NotSignedException )
 {
-    if (executor.getGrade() > getExecutionGrade())
-        throw(GradeTooLowException());
     if (!getSigned())
         throw(NotSignedException());
+    if (executor.getGrade() > getExecutionGrade())
+        throw(GradeTooLowException());
     std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
 

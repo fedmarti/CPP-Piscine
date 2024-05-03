@@ -6,7 +6,7 @@
 /*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 18:57:53 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/05/01 01:15:32 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/05/03 17:34:35 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ const std::string	ShrubberyCreationForm::getTarget( void ) const
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const throw( GradeTooLowException, NotSignedException )
 {
-	if (executor.getGrade() > getExecutionGrade())
-		throw( GradeTooLowException() );
 	if (!getSigned())
 		throw ( NotSignedException() );
+	if (executor.getGrade() > getExecutionGrade())
+		throw( GradeTooLowException() );
 	
 	std::ofstream file;
 	file.open((std::string(getTarget() + "_shrubbery").c_str()), std::ios_base::app);

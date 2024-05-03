@@ -17,7 +17,6 @@ int main()
 	}
 	catch (std::exception &e)
 	{
-		delete (small);
 		std::cerr << e.what() << std::endl;
 		return (1);
 	}
@@ -28,7 +27,6 @@ int main()
 	}
 	catch (std::exception &e)
 	{
-		delete (small);
 		delete (big);
 		std::cerr << e.what() << std::endl;
 		return (1);
@@ -36,6 +34,7 @@ int main()
 	
 	Intern 		intern;
 	std::string form_name;
+	std::cout << "Input form type:" << std::endl;
 	getline(std::cin, form_name);
 
 

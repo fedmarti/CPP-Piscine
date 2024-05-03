@@ -12,11 +12,21 @@ int main()
 	try
 	{
 		bur = new Bureaucrat(b_name, grade);
-		std::cout << *bur;
+		std::cout << "Allocation Successful:\n" << *bur;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Couldn't allocate Bureaucrat because: " << e.what() << std::endl;
+		return (1);
+	}
+	try
+	{
+		std::cout << "Decrementing the grade once:\n";
 		bur->decrementGrade();
 		std::cout << *bur;
 		while (1)
 		{
+			std::cout << "Now incrementing grade:\n";
 			bur->incrementGrade();
 			std::cout << *bur;
 		}
@@ -24,7 +34,6 @@ int main()
 	catch (std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
-		err = 1;
 	}
 	delete (bur);
 	return (err);
