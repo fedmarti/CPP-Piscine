@@ -6,7 +6,7 @@
 /*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 19:24:29 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/05/04 01:23:50 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/05/07 20:16:37 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <cfloat>
 #include <cmath>
 #include <cstdlib>
+#include <cerrno>
 
 static void	_out_c(char c)
 {
@@ -68,7 +69,7 @@ static void _out_d(string out)
 	cout << "double: " << out << endl;
 }
 
-static void	_print_int(string literal)
+/*static void	_print_int(string literal)
 {
 	int 	i = atoi(literal.c_str());
 	char	c;
@@ -111,7 +112,7 @@ static void _print_float(string literal)
 	char	c;
 	double	d = f;
 	
-	if (f < INT_MIN || f > INT_MAX)
+	if (f < INT_MIN || f > static_cast<float>(INT_MAX))
 	{
 		_out_c("Impossible");
 		_out_i("Impossible");
@@ -158,12 +159,11 @@ static void _print_double(string literal)
 	}
 	_out_f(f);
 	_out_d(d);
-}
+}*/
 
 static enum conv_type	_get_type(string literal)
 {
 	bool 			point = false;
-	enum conv_type	type = Int;
 	bool			has_sign = (literal[0] == '+' || literal[0] == '-');
 	bool			float_flag = false;
 

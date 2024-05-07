@@ -11,10 +11,10 @@ CC=c++
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CLFAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
-.o:.cpp
-	$(CC) $(CLFAGS) -c $^
+%.o:%.cpp
+	$(CC) $(CFLAGS) -c $^
 
 clean:
 	rm -f $(OBJ)
