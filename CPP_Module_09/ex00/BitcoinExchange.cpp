@@ -6,7 +6,7 @@
 /*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 02:22:41 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/05/19 06:49:28 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/05/19 18:43:29 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,15 +166,15 @@ void BitcoinExchange::print_rate( void )
 		// cout << i->first << "," << i->second << endl;
 }
 
-static bool validate_header( string str )
+static bool validate_header( string line )
 {
+	string str = line;
 	if (str.size() == 0)
 		return (false);
 
 	//skips space and tab
 	str.erase(0, str.find_first_not_of(" \t"));
 
-	cout << str << endl;
 	//checks for word data
 	if (str.substr(0, 4) != "date")
 		return (false);
@@ -182,23 +182,18 @@ static bool validate_header( string str )
 	str.erase(0, str.find("date") + 4);
 	str.erase(0, str.find_first_not_of(" \t"));
 
-	cout << str << endl;
-
 	//check for separator
 	if (str[0] != '|')
 		return (false);
 	str.erase(0, 1);
 	str.erase(0, str.find_first_not_of(" \t"));
 	
-	cout << str << endl;
-	
 	if (str.substr(0, 5) != "value")
 		return (false);
 	str.erase(0, 5);
-	cout << str << endl;
 	
 	//returns true if the only remaining characters are space and tab
-	return (str.find_last_not_of(" \t") == str.size());
+	return (str.find_last_not_of(" \t") == string::npos);
 }
 
 void	BitcoinExchange::read( string filename )
@@ -207,18 +202,51 @@ void	BitcoinExchange::read( string filename )
 
 	if (!file.is_open())
 	{
-		cout << "couldn't open file \"" << filename << endl;
+		cout << "Error: couldn't open file \"" << filename << endl;
 		return ;
 	}
 	string line;
 	getline(file, line);
 	if (!validate_header(line))
 	{
+		cout << "invalid header: \"" << line << "\"" << endl;
 		file.close();
 		return ;
 	}
-	
-	cout << line;
+
+	while (getline(file, line))
+	{
+		string date;
+		double val;
+		if (line.size() == 0)
+			continue;
+		
+		if (!_parse_date(const_cast<char *>(line.substr(0, line.find("|") - 1).c_str()), date))
+		{
+			line.erase(0, line.find_first_not_of(" \t"));
+			cout << "Error: bad input => " << line.substr(0, line.find_first_of(" \t|")) << endl;
+			continue ;
+		}
+		if (line.find("|") == string::npos || line.find_first_of("0123456789", line.find("|")) == string::npos)
+		{
+			cout << "Error: bad input => " << line << endl;
+			continue ;
+		}
+
+		val = atof(line.c_str() + line.find_first_of("|") + 1);
+		if (val < 0)
+		{
+			cout << "Error: not a positive number." << endl;
+			continue ;
+		}
+		if (val > 1000)
+		{
+			cout << "Error: too large a number." << endl;
+			continue ; 
+		}
+		map<string, double>::iterator lb = rate.lower_bound(date);
+		cout << date << " => " << val << " = " << lb->second * val << endl;
+	}
 	
 	file.close();
 }
