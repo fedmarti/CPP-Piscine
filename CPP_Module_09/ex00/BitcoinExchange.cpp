@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 02:22:41 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/05/19 18:43:29 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/05/20 20:21:45 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ bool BitcoinExchange::init( void )
 		string date;
 		double val = atof(line.c_str() + line.find(',') + 1);
 		line = line.substr(0, line.find(','));
-		if (_parse_date(const_cast<char *>(line.c_str()), date))
+		if (_parse_date(const_cast<char *>(line.c_str()), date) && (val >= 0 && val <= 1000))
 		{
 			rate[date] = val;
 		}
@@ -244,8 +244,14 @@ void	BitcoinExchange::read( string filename )
 			cout << "Error: too large a number." << endl;
 			continue ; 
 		}
-		map<string, double>::iterator lb = rate.lower_bound(date);
-		cout << date << " => " << val << " = " << lb->second * val << endl;
+		map<string, double>::iterator lb = rate.upper_bound(date);
+		double daily_rate = 0;
+		if (lb != rate.begin())
+		{
+			lb--;
+			daily_rate = lb->second;
+		}
+		cout << date << " => " << val << " = " << daily_rate * val << endl;
 	}
 	
 	file.close();
