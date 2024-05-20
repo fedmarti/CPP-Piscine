@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 23:15:14 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/05/12 16:28:53 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/05/20 18:39:10 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 #include <algorithm>
 
 template <typename T>
-typename T::iterator	easyfind(T& container, int val) throw(std::exception)
+typename T::iterator	easyfind(T& container, int val)
 {
 	typename T::iterator it = std::find(container.begin(), container.end(), val);
-	if (static_cast<int>(*it) == val)
-		return (it);
-		
-	throw(std::exception()); 
+
+
+	// if (it == container.end())
+		// throw(std::exception()); 
+	return (it);
 }

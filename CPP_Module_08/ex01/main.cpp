@@ -12,8 +12,21 @@ int main()
 	{
 		s1.addNumber(99);
 		s1.addNumber(2);
-		s1.addRange(2, 9);
-		s1.addRange(2, 8);
+		bool use_vector = true;
+		if (use_vector)
+		{
+			std::vector<int> v;
+			for (int i = 2; i < 10; i++)
+				v.push_back(i);
+			s1.addRange(v.begin(), v.end());
+		}
+		else
+		{
+			int  v2[] = {2, 3, 100, 5, 6, 7, 8, 9};
+			s1.addRange(v2, v2 + sizeof(v2));
+
+		}
+		
 		s1.addNumber(69);
 		s2.addNumber(21);
 	}

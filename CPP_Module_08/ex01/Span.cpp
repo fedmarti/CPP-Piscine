@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 01:16:55 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/05/12 22:48:08 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:02:28 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,11 @@ void		Span::addRange( int min, int max ) throw (FullSpan)
 		ub++;
 	}
 }
+
+/*void		addRange( int *start, int *end) throw (FullSpan)
+{
+
+}*/
 
 Span::Span( unsigned size ): _N(size), _vector(0)
 {

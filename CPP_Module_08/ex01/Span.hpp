@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fedmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fedmarti <fedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 01:18:53 by fedmarti          #+#    #+#             */
-/*   Updated: 2024/05/12 20:38:00 by fedmarti         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:57:29 by fedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,15 @@ public:
 
 	void		addNumber( int ) throw (FullSpan);
 	void		addRange( int, int ) throw (FullSpan);
+	template <typename T>
+	void		addRange( T start, const T &end ) throw (FullSpan)
+	{
+		while (start < end)
+		{
+			addNumber(*start);
+			start++;
+		}
+	};
 	unsigned	shortestSpan() const throw (EmptySpan);
 	unsigned	longestSpan() const throw (EmptySpan);
 	int			operator[] ( int ) const;
